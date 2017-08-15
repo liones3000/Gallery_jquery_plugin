@@ -3,9 +3,12 @@
 
 	$.fn.gallery = function(options){
 
+		$('img').before('<span class="left"><i class="glyphicon glyphicon-menu-left"></i></span><span class="right"><i class="glyphicon glyphicon-menu-right"></i></span>');
+
 		var defaults = {
 			current: 0,
-			classes: ''
+			classes: '',
+			keyup: false
 		};
 
 		options = $.extend(defaults, options);
@@ -27,8 +30,9 @@
 			$galleryItem.eq(options.current).addClass('current');
 
 			$gallery.attr('tabindex', 0);
+			if(options.keyup){
 
-			$gallery.on('keyup', function(event){
+			$gallery.on('keyup', function (event){
 				var index = $('.current', $gallery).index();
 				if(event.which == 37){
 					var prev = index < 0 ? $galleryItem.length - 1 : index - 1;
@@ -51,8 +55,31 @@
 
 					if (index >= $galleryItem.length - 1) $gallery.trigger('end');
 				}
-			})
-		});
+			}); //arrow
+			}
+				$(this).on('click', '.left',function(event){
+					debugger;
+					console.log(event.currentTarget.className);
+					var index = $('.current', $gallery).index();
+
+					var prev = index < 0 ? $galleryItem.length - 1 : index - 1;
+					$galleryItem
+					.removeClass('current')
+					.eq(prev)
+					.addClass('current');
+					console.log(index);
+			}) //left
+				$(this).on('click', '.right',function(){
+					var index = $('.current', $gallery).index();
+					var next = index >= $galleryItem.length - 1 ? 0 : index + 1;
+
+					$galleryItem
+					.removeClass('current')
+					.eq(next)
+					.addClass('current');
+					console.log(index);
+			}); //right
+		}); //each
 	}
 
 })(jQuery);

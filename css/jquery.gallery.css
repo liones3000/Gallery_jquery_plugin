@@ -16,3 +16,29 @@
 	opacity: 1;
 	filter: none;
 }
+.gallery img:before {
+	content: "left";
+	size: 100px;
+	display: block;
+	/*z-index: 0;*/
+	position: absolute;
+}
+span.left {
+	position: absolute;
+	display: block;
+	left: 0;
+	color: #fff;
+	z-index: 1;
+	font-size: 3em;
+	top: calc(50% - 35px);
+	cursor: pointer;
+}
+span.right {
+	position: absolute;
+	right: 0;
+	color: #fff;
+	z-index: 1;
+	font-size: 3em;
+	top: calc(50% - 35px);
+	cursor: pointer;
+}

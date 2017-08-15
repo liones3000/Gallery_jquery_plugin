@@ -1,7 +1,7 @@
 console.clear();
 
 $(function() {
-	$('#gallery').gallery({current: 5});
+	$('#gallery').gallery({current: 0, keyup: true,});
 })
 
 $('#gallery').on('end', function(){

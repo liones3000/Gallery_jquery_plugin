@@ -30,54 +30,50 @@
 			$galleryItem.eq(options.current).addClass('current');
 
 			$gallery.attr('tabindex', 0);
+
 			if(options.keyup){
+				$gallery.on('keyup', function (event){
+					var index = $('.current', $gallery).index();
+					if(event.which == 37){
+						var prev = index < 0 ? $galleryItem.length - 1 : index - 1;
+						$galleryItem
+						.removeClass('current')
+						.eq(prev)
+						.addClass('current');
+						console.log(index);
 
-			$gallery.on('keyup', function (event){
-				var index = $('.current', $gallery).index();
-				if(event.which == 37){
-					var prev = index < 0 ? $galleryItem.length - 1 : index - 1;
-					$galleryItem
-					.removeClass('current')
-					.eq(prev)
-					.addClass('current');
-					console.log(index);
+						if (index === 0 ) $gallery.trigger('start');
 
-					if (index === 0 ) $gallery.trigger('start');
+					} else if (event.which == 39){
+						var next = index >= $galleryItem.length - 1 ? 0 : index + 1;
 
-				} else if (event.which == 39){
-					var next = index >= $galleryItem.length - 1 ? 0 : index + 1;
+						$galleryItem
+						.removeClass('current')
+						.eq(next)
+						.addClass('current');
+						console.log(index);
 
-					$galleryItem
-					.removeClass('current')
-					.eq(next)
-					.addClass('current');
-					console.log(index);
-
-					if (index >= $galleryItem.length - 1) $gallery.trigger('end');
-				}
+						if (index >= $galleryItem.length - 1) $gallery.trigger('end');
+					}
 			}); //arrow
 			}
-				$(this).on('click', '.left',function(event){
-					debugger;
-					console.log(event.currentTarget.className);
-					var index = $('.current', $gallery).index();
-
-					var prev = index < 0 ? $galleryItem.length - 1 : index - 1;
-					$galleryItem
-					.removeClass('current')
-					.eq(prev)
-					.addClass('current');
-					console.log(index);
+			$(this).on('click', '.left',function(event){
+				var index = $('.current', $gallery).index();
+				var prev = index < 0 ? $galleryItem.length - 1 : index - 1;
+				$galleryItem
+				.removeClass('current')
+				.eq(prev)
+				.addClass('current');
+				console.log(index);
 			}) //left
-				$(this).on('click', '.right',function(){
-					var index = $('.current', $gallery).index();
-					var next = index >= $galleryItem.length - 1 ? 0 : index + 1;
-
-					$galleryItem
-					.removeClass('current')
-					.eq(next)
-					.addClass('current');
-					console.log(index);
+			$(this).on('click', '.right',function(){
+				var index = $('.current', $gallery).index();
+				var next = index >= $galleryItem.length - 1 ? 0 : index + 1;
+				$galleryItem
+				.removeClass('current')
+				.eq(next)
+				.addClass('current');
+				console.log(index);
 			}); //right
 		}); //each
 	}

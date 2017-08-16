@@ -74,10 +74,8 @@
 			} //option arrow
 		$('#gallery .gallery-item>img').before('<span class="left"><i class="glyphicon glyphicon-menu-left"></i></span><span class="right"><i class="glyphicon glyphicon-menu-right"></i></span>');
 
-			// var $mini = $('<div>').addClass('mini');
 			var $div = $('<div>').addClass('preview');
 			$miniItems.each(function(i){
-			// debugger;
 			var $mini = $($miniItems[i]).addClass('mini');
 				$div.append($mini);
 			})

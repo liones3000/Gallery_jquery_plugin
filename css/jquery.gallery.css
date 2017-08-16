@@ -37,9 +37,12 @@ span.right {
 }
 .mini {
 	width: 50px;
+	margin: 0 0.1em;
+	cursor: pointer;
 	display: inline-block;
 }
 .preview {
 	position: relative;
 	text-align: center;
+	margin-top: 1em;
 }

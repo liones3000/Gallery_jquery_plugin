@@ -1,7 +1,10 @@
 console.clear();
 
 $(function() {
-	$('#gallery').gallery({current: 0, keyup: true,});
+	$('#gallery').gallery({
+		current: 0, 
+		keyup: true,
+	});
 })
 
 $('#gallery').on('end', function(){
@@ -13,6 +16,7 @@ $('#gallery').on('start', function(){
 
 $(function() {
 	$('#gallery2').gallery({
-		classes: 'gallery-class',
+		classes: 'gallery-class', 
+		preview: false
 	});
 })

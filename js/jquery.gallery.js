@@ -12,7 +12,7 @@
 		};
 
 		options = $.extend(defaults, options);
-		console.log(options);
+		// console.log(options);
 
 
 		return this.each(function(i){
@@ -23,7 +23,7 @@
 			$gallery.addClass('gallery').addClass(options.classes);
 			$galleryItem.addClass('gallery-item');
 
-			var maxHeight = 0;
+			var maxHeight = 300;
 			$.each($galleryItem, function(i, item){
 				maxHeight = Math.max(maxHeight, $(item).height());
 			});

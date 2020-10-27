@@ -8,10 +8,10 @@ $(function() {
 })
 
 $('#gallery').on('end', function(){
-	console.log ('end');
+	// console.log ('end');
 })
 $('#gallery').on('start', function(){
-	console.log ('start');
+	// console.log ('start');
 })
 
 $(function() {

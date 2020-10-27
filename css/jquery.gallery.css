@@ -1,7 +1,3 @@
-/* .gallery {
-	position: relative;
-	overflow: hidden;
-} */
 .gallery:focus {
 	outline: none;
 
